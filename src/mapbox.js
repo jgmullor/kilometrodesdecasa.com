@@ -1,5 +1,6 @@
 import {} from 'mapbox-gl-leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 let map;
 const radius = 1000;
