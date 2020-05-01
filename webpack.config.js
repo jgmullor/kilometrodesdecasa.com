@@ -2,17 +2,15 @@ const { DefinePlugin, ProgressPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.[contenthash].js'
+        filename: 'bundle.js'
     },
     plugins: [
         new ProgressPlugin(),
-        new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: 'src/images', to: 'images' } // https://github.com/Leaflet/Leaflet/pull/6951
         ]),
@@ -20,7 +18,7 @@ module.exports = {
             MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css',
+            filename: 'styles.css',
         }),
         new HtmlWebpackPlugin(),
     ],
@@ -45,7 +43,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: 'images/[name].[contenthash].[ext]',
+                        name: 'images/[name].[ext]',
                         publicPath: '/'
                     },
                     
