@@ -1,11 +1,12 @@
-import {} from "mapbox-gl-leaflet";
+import {} from 'mapbox-gl-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-let map, radius = 1000;
+let map
+const radius = 1000;
 
 function onLocationFound(e) {
-    var marker = L.marker(e.latlng, { draggable: true }).addTo(map).bindPopup("Mueve este marcador a tu ubicación exacta").openPopup();
-    var circle = L.circle(e.latlng, radius).addTo(map)
+    let marker = L.marker(e.latlng, { draggable: true }).addTo(map).bindPopup('Mueve este marcador a tu ubicación exacta').openPopup();
+    let circle = L.circle(e.latlng, radius).addTo(map)
     map.panTo(e.latlng);
 
     marker.on('dragstart', function (e) {
@@ -13,18 +14,18 @@ function onLocationFound(e) {
     });
 
     marker.on('dragend', function (e) {
-        var newPos = e.target.getLatLng();
+        let newPos = e.target.getLatLng();
         circle = new L.circle(newPos, { radius: radius }).addTo(map);
     });
 
-    document.getElementById('start').style.display = "none";
-    document.getElementById('map').style.display = "block";
+    document.getElementById('start').style.display = 'none';
+    document.getElementById('map').style.display = 'block';
 }
 
-function onLocationError(e) {
-    document.getElementById('alert').style.display = "block";
-    document.getElementById('startButton').style.display = "block";
-    document.getElementById('spinner').style.display = "none";
+function onLocationError() {
+    document.getElementById('alert').style.display = 'block';
+    document.getElementById('startButton').style.display = 'block';
+    document.getElementById('spinner').style.display = 'none';
 }
 
 export function boot () {    
@@ -39,9 +40,9 @@ export function boot () {
 
 export function start () {
     map.locate();
-    document.getElementById('alert').style.display = "none";
-    document.getElementById('startButton').style.display = "none";
-    document.getElementById('spinner').style.display = "block";
+    document.getElementById('alert').style.display = 'none';
+    document.getElementById('startButton').style.display = 'none';
+    document.getElementById('spinner').style.display = 'block';
     map.on('locationfound', onLocationFound);
     map.on('locationerror', onLocationError);
 }
