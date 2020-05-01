@@ -1,7 +1,7 @@
 import {} from 'mapbox-gl-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-let map
+let map;
 const radius = 1000;
 
 function onLocationFound(e) {
