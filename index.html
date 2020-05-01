@@ -12,16 +12,18 @@
 
     <title>kilometrodesdecasa.com</title>
     <meta name="title" content="kilometrodesdecasa.com">
-    <meta name="description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla">
+    <meta name="description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla mediante geolocalización. Simplemente haz click en el botón de Empezar y mueve el marcador en caso de ser necesario">
+    <meta name="author" content="José Gilberto Mullor (jgmullor)">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kilometrodesdecasa.com">
     <meta property="og:title" content="kilometrodesdecasa.com">
-    <meta property="og:description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla">
+    <meta property="og:description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla mediante geolocalización. Simplemente haz click en el botón de Empezar y mueve el marcador en caso de ser necesario">
     <meta property="og:image" content="https://kilometrodesdecasa.com/kilometro-desde-casa.png">
+    <meta property="og:locale" content="es_ES">
     <meta property="twitter:card" content="kilometrodesdecasa.com">
     <meta property="twitter:url" content="https://kilometrodesdecasa.com">
     <meta property="twitter:title" content="kilometrodesdecasa.com">
-    <meta property="twitter:description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla">
+    <meta property="twitter:description" content="Esta aplicación te permite conocer hasta donde puedes pasear desde tu casa, de forma sencilla mediante geolocalización. Simplemente haz click en el botón de Empezar y mueve el marcador en caso de ser necesario">
     <meta property="twitter:image" content="https://kilometrodesdecasa.com/kilometro-desde-casa.png">
 
     <style>
@@ -99,7 +101,7 @@
         <div class="message">
             <h1>¡Hola!</h1>
             <hr />
-            <p>Esta aplicación te permite conocer hasta donde puedes caminar manteniendo la restricción de 1 kilómetro desde tu casa. Se trata únicamente de una demo, por favor utilízalo solo como curiosidad.</p>
+            <p>Esta aplicación te permite conocer hasta donde puedes caminar dentro del radio de 1 kilómetro desde tu casa. Se trata únicamente de una demo, por favor utilízalo solo como curiosidad.</p>
             <p>Necesitaremos que nos permitas conocer tu ubicación para geolocalizarte</p>
             
             <a id="startButton" href="javascript:void(0);" onclick="start();">Empezar</a>
@@ -118,6 +120,8 @@
         var accessToken = 'no-token';
         var radius = 1000;
         var map = L.map('map').setView([40.4173155, -3.7044806], 15);
+        map.attributionControl.addAttribution('Github: <a href="https://github.com/jgmullor/kilometrodesdecasa.com">@jgmullor</a>');
+
         var gl = L.mapboxGL({
             accessToken: accessToken,
             style: 'mapbox://styles/mapbox/streets-v8'
