@@ -12,7 +12,7 @@ module.exports = {
     plugins: [
         new ProgressPlugin(),
         new CopyWebpackPlugin([
-            { from: 'src/images', to: 'images' } // https://github.com/Leaflet/Leaflet/pull/6951
+            { from: 'public', to: './' } // https://github.com/Leaflet/Leaflet/pull/6951
         ]),
         new DefinePlugin({
             MAPBOX_ACCESS_TOKEN: JSON.stringify(process.env.MAPBOX_ACCESS_TOKEN),
